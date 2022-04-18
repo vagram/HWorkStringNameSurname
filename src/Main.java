@@ -6,10 +6,10 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Введите ФИО ");
         String name = new Scanner(System.in).nextLine();
-        validString(name, regEx);
+        validString(name);
     }
 
-    public static void validString(String name, String regEx) {
+    public static void validString(String name) {
 
         if (name.matches(regEx)) {
             name = name.replaceAll(regEx, "Имя: $1$2\nОтчество: $3 $4\nФамилия: $5");
