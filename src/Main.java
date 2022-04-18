@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    private final static String regEx = "([А-я]*-?[А-я]*?)(\\s)([А-я]*-?[А-я]*?)(\\s)([А-я]*-?[А-я]*$)";
+    private final static String regEx = "([А-я]+-?[А-я]+)(\\s)([А-я]+-?[А-я]+)(\\s)([А-я]+-?[А-я]+$)";
 
     public static void main(String[] args) {
         System.out.println("Введите ФИО ");
