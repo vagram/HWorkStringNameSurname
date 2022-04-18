@@ -1,27 +1,26 @@
 import java.util.Scanner;
 
 public class Main {
-    static String temp;
+    private final static String regEx = "([А-я]*-?[А-я]*?)(\\s+)([А-я]*-?[А-я]*?)(\\s+)([А-я]*-?[А-я]*$)";
 
     public static void main(String[] args) {
         System.out.println("Введите ФИО ");
         String name = new Scanner(System.in).nextLine();
-        validString(name);
+        validString(name, regEx);
     }
 
-    public static void validString(String name) {
+    public static void validString(String name, String regEx) {
 
-        temp = String.valueOf(name.matches("[А-Я][а-я]*-?[а-я]*?\\s[А-Я]?[а-я]*-?[а-я]*?\\s[А-Я]?[а-я]*-?[а-я]*"));
-        if (temp == String.valueOf(true)) {
-            name = name.replaceAll("\"[А-Я][а-я]*-?[а-я]*?\\\\s[А-Я]?[а-я]*-?[а-я]*?\\\\s[А-Я]?[а-я]*-?[а-я]*\"",
-                    "\"[А-Я][а-я]*-?[а-я]*?\\\\s[А-Я]?[а-я]*-?[а-я]*?\\\\s[А-Я]?[а-я]*-?[а-я]*\"");
-            System.out.println(name);
+        if (name.matches(regEx)) {
+            name = name.replaceAll(regEx, "Имя: $1$2\nОтчество: $3 $4\nФамилия: $5");
+            System.out.print(name);
         } else {
             System.out.println("Неправильный ввод ФИО");
         }
-
     }
+
 }
+
 
 
 
